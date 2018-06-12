@@ -42,15 +42,15 @@ class EditProfileController extends Controller
     public function store(Request $request)
     {
 
-//        $this->validate($request, [
-//            'name' => 'required|min:1',
-//            'email' => 'required|email|unique:users',
-//            'age' => 'required',
-//            'nationality' => 'required',
-//            'level' => 'required',
-//            'contact' => 'min:8|max:12',
-//
-//        ]);
+        $this->validate($request, [
+            'name' => 'required|min:1',
+            'email' => 'required|email',
+            'age' => 'required',
+            'nationality' => 'required',
+            'level' => 'required',
+            'contact' => 'min:8|max:12',
+
+        ]);
 
 
         $user = User::find(Auth::id());
