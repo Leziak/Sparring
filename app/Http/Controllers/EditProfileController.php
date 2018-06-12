@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use \App\User;
 
 class EditProfileController extends Controller
 {
@@ -13,7 +15,12 @@ class EditProfileController extends Controller
      */
     public function index()
     {
-        return 'hello';
+
+        $user = Auth::user();
+
+        return view('editprofile', [
+            'user' => $user
+            ]);
     }
 
     /**
@@ -34,7 +41,28 @@ class EditProfileController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+//        $this->validate($request, [
+//            'name' => 'required|min:1',
+//            'email' => 'required|email|unique:users',
+//            'age' => 'required',
+//            'nationality' => 'required',
+//            'level' => 'required',
+//            'contact' => 'min:8|max:12',
+//
+//        ]);
+
+
+        $user = User::find(Auth::id());
+
+        $user->fill($request->all());
+
+        $user->save();
+
+        session()->flash('success_message', 'Success!');
+
+        return redirect()->action("ProfileController@index", ["id"=> $user->id]);
+
     }
 
     /**

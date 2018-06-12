@@ -19,6 +19,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
 </head>
 <body>
     <div id="app">
@@ -78,6 +79,7 @@
             @yield('content')
             @yield('profile')
             @yield('profiles')
+            @yield('editprofile')
             @include('friends')
         </main>
     </div>
