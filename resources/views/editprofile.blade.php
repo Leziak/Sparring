@@ -291,7 +291,7 @@
   'ZM' => 'Zambia',
   'ZW' => 'Zimbabwe',
 )
-            , 'Czechia') !!}
+            , $user->nationality) !!}
         </div>
 
         {{--HEIGHT--}}
@@ -327,7 +327,7 @@
                 'intermediate' => 'intermediate',
                 'expert' => 'expert'
             ]
-            , 'rookie') !!}
+            , $user->level) !!}
         </div>
 
         {{--ABOUT--}}

@@ -80,6 +80,8 @@
             @yield('profile')
             @yield('profiles')
             @yield('editprofile')
+            @yield('gyms')
+            @yield('gym')
             @include('friends')
         </main>
     </div>
